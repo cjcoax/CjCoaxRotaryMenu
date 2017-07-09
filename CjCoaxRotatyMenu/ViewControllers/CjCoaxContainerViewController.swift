@@ -12,8 +12,9 @@ public class CjCoaxContainerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var isFirstLoad = true
     var circularLayout: CjCoaxCircularLayout!
+    var selectedIndexPath: IndexPath?
     
-    
+    // MARK:- life cycle
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +38,26 @@ public class CjCoaxContainerViewController: UIViewController {
                 forCellWithReuseIdentifier: CjCoaxConstants.reusableIdentifiers.menuReusableId)
         }
     }
+    
+    // MARK:- actions
+    @IBAction internal func collectionViewPanned(sender: UIPanGestureRecognizer) {
+        let point = sender.location(in: self.collectionView)
+        switch sender.state {
+        case .began:
+            //TODO: make logic change for appropriate closest cell
+            /*  selectedIndexPath = collectionView.indexPath(for: closestCell())!
+                fileprivate func closestCell() -> UICollectionViewCell {
+                    return collectionView.cellForItem(at: IndexPath(item: 0, section: 0))!
+                }
+             */
+            self.selectedIndexPath = IndexPath(item: 0, section: 0)
+            self.circularLayout.startDragging(point)
+        case .changed:
+            self.circularLayout.updateDragLocation(point)
+        default:
+            break
+        }
+    }
 }
 
 
@@ -50,7 +71,11 @@ extension CjCoaxContainerViewController: UICollectionViewDataSource, UICollectio
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:
+            CjCoaxConstants.reusableIdentifiers.menuReusableId,
+                                                      for: indexPath)
+        
+        return cell
     }
 }
 

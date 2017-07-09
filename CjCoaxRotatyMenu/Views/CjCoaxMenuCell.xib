@@ -29,6 +29,9 @@
                 <constraint firstItem="5qd-DL-GXr" firstAttribute="top" secondItem="Fia-8t-Lbg" secondAttribute="top" id="t2P-Tn-fdJ"/>
                 <constraint firstAttribute="trailing" secondItem="5qd-DL-GXr" secondAttribute="trailing" id="tRR-NT-fsV"/>
             </constraints>
+            <connections>
+                <outlet property="menuImage" destination="5qd-DL-GXr" id="bb3-EN-dVL"/>
+            </connections>
             <point key="canvasLocation" x="-194" y="-74"/>
         </collectionViewCell>
     </objects>

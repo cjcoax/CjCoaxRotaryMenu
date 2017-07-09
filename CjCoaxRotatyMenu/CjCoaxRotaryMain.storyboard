@@ -24,6 +24,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YGt-bU-KKh">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="qec-2h-zRf"/>
                                     <constraint firstAttribute="height" constant="300" id="vda-E0-hHr"/>
@@ -38,6 +39,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="ZXI-D6-5Va" id="PaR-Lm-BAO"/>
                                     <outlet property="delegate" destination="ZXI-D6-5Va" id="aoj-Pu-OvA"/>
+                                    <outletCollection property="gestureRecognizers" destination="Tit-Sl-dlQ" appends="YES" id="PMA-CS-dbh"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -52,6 +54,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixi-j0-2R9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Tit-Sl-dlQ">
+                    <connections>
+                        <action selector="collectionViewPannedWithSender:" destination="ZXI-D6-5Va" id="vhs-FA-Cm2"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-346" y="136"/>
         </scene>
