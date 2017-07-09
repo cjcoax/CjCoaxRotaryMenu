@@ -13,6 +13,9 @@
 		5F318BB11F117615005E84EA /* CjCoaxContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F318BB01F117615005E84EA /* CjCoaxContainerViewController.swift */; };
 		5F318BB41F1176D1005E84EA /* CjCoaxTrainAttachmentBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F318BB31F1176D1005E84EA /* CjCoaxTrainAttachmentBehavior.swift */; };
 		5FE154BF1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE154BE1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift */; };
+		5FE154C41F1206A200AFE52C /* CjCoaxMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE154C31F1206A200AFE52C /* CjCoaxMenuCell.swift */; };
+		5FE154C61F1206E200AFE52C /* CjCoaxMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE154C51F1206E200AFE52C /* CjCoaxMenuCell.xib */; };
+		5FE154C81F12082300AFE52C /* CjCoaxConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE154C71F12082300AFE52C /* CjCoaxConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		5F318BB01F117615005E84EA /* CjCoaxContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxContainerViewController.swift; sourceTree = "<group>"; };
 		5F318BB31F1176D1005E84EA /* CjCoaxTrainAttachmentBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxTrainAttachmentBehavior.swift; sourceTree = "<group>"; };
 		5FE154BE1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxCircularLayout.swift; sourceTree = "<group>"; };
+		5FE154C31F1206A200AFE52C /* CjCoaxMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxMenuCell.swift; sourceTree = "<group>"; };
+		5FE154C51F1206E200AFE52C /* CjCoaxMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CjCoaxMenuCell.xib; sourceTree = "<group>"; };
+		5FE154C71F12082300AFE52C /* CjCoaxConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +62,14 @@
 		5F318B9A1F1173D3005E84EA /* CjCoaxRotatyMenu */ = {
 			isa = PBXGroup;
 			children = (
+				5FE154C21F12067200AFE52C /* Views */,
 				5F318BB21F1176A0005E84EA /* Circular */,
 				5F318BAF1F1175F8005E84EA /* ViewControllers */,
 				5F318B9B1F1173D3005E84EA /* AppDelegate.swift */,
 				5F318BA21F1173D3005E84EA /* Assets.xcassets */,
 				5F318BA71F1173D3005E84EA /* Info.plist */,
 				5F318BAD1F1175D2005E84EA /* CjCoaxRotaryMain.storyboard */,
+				5FE154C71F12082300AFE52C /* CjCoaxConstants.swift */,
 			);
 			path = CjCoaxRotatyMenu;
 			sourceTree = "<group>";
@@ -81,6 +89,15 @@
 				5FE154BE1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift */,
 			);
 			path = Circular;
+			sourceTree = "<group>";
+		};
+		5FE154C21F12067200AFE52C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5FE154C31F1206A200AFE52C /* CjCoaxMenuCell.swift */,
+				5FE154C51F1206E200AFE52C /* CjCoaxMenuCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FE154C61F1206E200AFE52C /* CjCoaxMenuCell.xib in Resources */,
 				5F318BAE1F1175D2005E84EA /* CjCoaxRotaryMain.storyboard in Resources */,
 				5F318BA31F1173D3005E84EA /* Assets.xcassets in Resources */,
 			);
@@ -155,9 +173,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F318BB11F117615005E84EA /* CjCoaxContainerViewController.swift in Sources */,
+				5FE154C41F1206A200AFE52C /* CjCoaxMenuCell.swift in Sources */,
 				5F318B9C1F1173D3005E84EA /* AppDelegate.swift in Sources */,
 				5FE154BF1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift in Sources */,
 				5F318BB41F1176D1005E84EA /* CjCoaxTrainAttachmentBehavior.swift in Sources */,
+				5FE154C81F12082300AFE52C /* CjCoaxConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

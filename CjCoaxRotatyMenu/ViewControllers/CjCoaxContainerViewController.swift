@@ -29,6 +29,12 @@ public class CjCoaxContainerViewController: UIViewController {
             self.circularLayout.delegate = self
             self.circularLayout.invalidateLayout()
             self.collectionView.reloadData()
+            
+            let menuCellNib = UINib(nibName: CjCoaxConstants.NibNames.menuCell,
+                                    bundle: Bundle(for: CjCoaxContainerViewController.self))
+            
+            self.collectionView.register(menuCellNib,
+                forCellWithReuseIdentifier: CjCoaxConstants.reusableIdentifiers.menuReusableId)
         }
     }
 }
