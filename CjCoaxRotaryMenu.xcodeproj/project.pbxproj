@@ -284,7 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = CjCoaxRotatyMenu/Info.plist;
+				INFOPLIST_FILE = CjCoaxRotaryMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cjcoax.CjCoaxRotatyMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -297,7 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = CjCoaxRotatyMenu/Info.plist;
+				INFOPLIST_FILE = CjCoaxRotaryMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cjcoax.CjCoaxRotatyMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";

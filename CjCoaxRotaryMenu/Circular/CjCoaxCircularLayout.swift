@@ -1,6 +1,6 @@
 //
 //  CircularLayout.swift
-//  CjCoaxRotatyMenu
+//  CjCoaxRotaryMenu
 //
 //  Created by Amir Rezvani on 7/8/17.
 //  Copyright © 2017 Amir Rezvani. All rights reserved.
