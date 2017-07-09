@@ -58,8 +58,6 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
     
     // MARK:- overrides
     override func prepare() {
-        super.prepare()
-        
         guard let collectionView = self.collectionView,
                 let delegate = self.delegate else {
             return
@@ -104,6 +102,7 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        print("layoutAttributesForElements: \(Date())")
         return self.cachedAttributes
     }
     

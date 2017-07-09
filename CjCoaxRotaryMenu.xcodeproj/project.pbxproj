@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F318B981F1173D3005E84EA /* CjCoaxRotatyMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CjCoaxRotatyMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F318B981F1173D3005E84EA /* CjCoaxRotaryMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CjCoaxRotaryMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F318B9B1F1173D3005E84EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F318BA21F1173D3005E84EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F318BA71F1173D3005E84EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		5F318B8F1F1173D3005E84EA = {
 			isa = PBXGroup;
 			children = (
-				5F318B9A1F1173D3005E84EA /* CjCoaxRotatyMenu */,
+				5F318B9A1F1173D3005E84EA /* CjCoaxRotaryMenu */,
 				5F318B991F1173D3005E84EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +54,12 @@
 		5F318B991F1173D3005E84EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F318B981F1173D3005E84EA /* CjCoaxRotatyMenu.app */,
+				5F318B981F1173D3005E84EA /* CjCoaxRotaryMenu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F318B9A1F1173D3005E84EA /* CjCoaxRotatyMenu */ = {
+		5F318B9A1F1173D3005E84EA /* CjCoaxRotaryMenu */ = {
 			isa = PBXGroup;
 			children = (
 				5FE154C21F12067200AFE52C /* Views */,
@@ -71,7 +71,7 @@
 				5F318BAD1F1175D2005E84EA /* CjCoaxRotaryMain.storyboard */,
 				5FE154C71F12082300AFE52C /* CjCoaxConstants.swift */,
 			);
-			path = CjCoaxRotatyMenu;
+			path = CjCoaxRotaryMenu;
 			sourceTree = "<group>";
 		};
 		5F318BAF1F1175F8005E84EA /* ViewControllers */ = {
@@ -103,9 +103,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5F318B971F1173D3005E84EA /* CjCoaxRotatyMenu */ = {
+		5F318B971F1173D3005E84EA /* CjCoaxRotaryMenu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F318BAA1F1173D3005E84EA /* Build configuration list for PBXNativeTarget "CjCoaxRotatyMenu" */;
+			buildConfigurationList = 5F318BAA1F1173D3005E84EA /* Build configuration list for PBXNativeTarget "CjCoaxRotaryMenu" */;
 			buildPhases = (
 				5F318B941F1173D3005E84EA /* Sources */,
 				5F318B951F1173D3005E84EA /* Frameworks */,
@@ -115,9 +115,9 @@
 			);
 			dependencies = (
 			);
-			name = CjCoaxRotatyMenu;
+			name = CjCoaxRotaryMenu;
 			productName = CjCoaxRotatyMenu;
-			productReference = 5F318B981F1173D3005E84EA /* CjCoaxRotatyMenu.app */;
+			productReference = 5F318B981F1173D3005E84EA /* CjCoaxRotaryMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -136,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5F318B931F1173D3005E84EA /* Build configuration list for PBXProject "CjCoaxRotatyMenu" */;
+			buildConfigurationList = 5F318B931F1173D3005E84EA /* Build configuration list for PBXProject "CjCoaxRotaryMenu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -149,7 +149,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F318B971F1173D3005E84EA /* CjCoaxRotatyMenu */,
+				5F318B971F1173D3005E84EA /* CjCoaxRotaryMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -308,7 +308,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F318B931F1173D3005E84EA /* Build configuration list for PBXProject "CjCoaxRotatyMenu" */ = {
+		5F318B931F1173D3005E84EA /* Build configuration list for PBXProject "CjCoaxRotaryMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F318BA81F1173D3005E84EA /* Debug */,
@@ -317,7 +317,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F318BAA1F1173D3005E84EA /* Build configuration list for PBXNativeTarget "CjCoaxRotatyMenu" */ = {
+		5F318BAA1F1173D3005E84EA /* Build configuration list for PBXNativeTarget "CjCoaxRotaryMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F318BAB1F1173D3005E84EA /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F318B971F1173D3005E84EA"
-               BuildableName = "CjCoaxRotatyMenu.app"
-               BlueprintName = "CjCoaxRotatyMenu"
-               ReferencedContainer = "container:CjCoaxRotatyMenu.xcodeproj">
+               BuildableName = "CjCoaxRotaryMenu.app"
+               BlueprintName = "CjCoaxRotaryMenu"
+               ReferencedContainer = "container:CjCoaxRotaryMenu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F318B971F1173D3005E84EA"
-            BuildableName = "CjCoaxRotatyMenu.app"
-            BlueprintName = "CjCoaxRotatyMenu"
-            ReferencedContainer = "container:CjCoaxRotatyMenu.xcodeproj">
+            BuildableName = "CjCoaxRotaryMenu.app"
+            BlueprintName = "CjCoaxRotaryMenu"
+            ReferencedContainer = "container:CjCoaxRotaryMenu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F318B971F1173D3005E84EA"
-            BuildableName = "CjCoaxRotatyMenu.app"
-            BlueprintName = "CjCoaxRotatyMenu"
-            ReferencedContainer = "container:CjCoaxRotatyMenu.xcodeproj">
+            BuildableName = "CjCoaxRotaryMenu.app"
+            BlueprintName = "CjCoaxRotaryMenu"
+            ReferencedContainer = "container:CjCoaxRotaryMenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F318B971F1173D3005E84EA"
-            BuildableName = "CjCoaxRotatyMenu.app"
-            BlueprintName = "CjCoaxRotatyMenu"
-            ReferencedContainer = "container:CjCoaxRotatyMenu.xcodeproj">
+            BuildableName = "CjCoaxRotaryMenu.app"
+            BlueprintName = "CjCoaxRotaryMenu"
+            ReferencedContainer = "container:CjCoaxRotaryMenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -24,7 +24,7 @@ class CjCoaxMenuCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.black
     }
     
     override func layoutSubviews() {
