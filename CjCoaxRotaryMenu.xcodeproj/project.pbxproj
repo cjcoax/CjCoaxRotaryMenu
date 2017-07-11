@@ -12,6 +12,7 @@
 		5F318BAE1F1175D2005E84EA /* CjCoaxRotaryMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F318BAD1F1175D2005E84EA /* CjCoaxRotaryMain.storyboard */; };
 		5F318BB11F117615005E84EA /* CjCoaxContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F318BB01F117615005E84EA /* CjCoaxContainerViewController.swift */; };
 		5F318BB41F1176D1005E84EA /* CjCoaxTrainAttachmentBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F318BB31F1176D1005E84EA /* CjCoaxTrainAttachmentBehavior.swift */; };
+		5FCA10291F148E2300D4D33C /* RotaryMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCA10281F148E2300D4D33C /* RotaryMenuDelegate.swift */; };
 		5FE154BF1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE154BE1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift */; };
 		5FE154C41F1206A200AFE52C /* CjCoaxMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE154C31F1206A200AFE52C /* CjCoaxMenuCell.swift */; };
 		5FE154C61F1206E200AFE52C /* CjCoaxMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE154C51F1206E200AFE52C /* CjCoaxMenuCell.xib */; };
@@ -26,6 +27,7 @@
 		5F318BAD1F1175D2005E84EA /* CjCoaxRotaryMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CjCoaxRotaryMain.storyboard; sourceTree = "<group>"; };
 		5F318BB01F117615005E84EA /* CjCoaxContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxContainerViewController.swift; sourceTree = "<group>"; };
 		5F318BB31F1176D1005E84EA /* CjCoaxTrainAttachmentBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxTrainAttachmentBehavior.swift; sourceTree = "<group>"; };
+		5FCA10281F148E2300D4D33C /* RotaryMenuDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryMenuDelegate.swift; sourceTree = "<group>"; };
 		5FE154BE1F11DB0E00AFE52C /* CjCoaxCircularLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxCircularLayout.swift; sourceTree = "<group>"; };
 		5FE154C31F1206A200AFE52C /* CjCoaxMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CjCoaxMenuCell.swift; sourceTree = "<group>"; };
 		5FE154C51F1206E200AFE52C /* CjCoaxMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CjCoaxMenuCell.xib; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				5F318BB01F117615005E84EA /* CjCoaxContainerViewController.swift */,
+				5FCA10281F148E2300D4D33C /* RotaryMenuDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FCA10291F148E2300D4D33C /* RotaryMenuDelegate.swift in Sources */,
 				5F318BB11F117615005E84EA /* CjCoaxContainerViewController.swift in Sources */,
 				5FE154C41F1206A200AFE52C /* CjCoaxMenuCell.swift in Sources */,
 				5F318B9C1F1173D3005E84EA /* AppDelegate.swift in Sources */,
@@ -286,7 +290,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CjCoaxRotaryMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cjcoax.CjCoaxRotatyMenu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cjcoax.CjCoaxRotaryMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -299,7 +303,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CjCoaxRotaryMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cjcoax.CjCoaxRotatyMenu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cjcoax.CjCoaxRotaryMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

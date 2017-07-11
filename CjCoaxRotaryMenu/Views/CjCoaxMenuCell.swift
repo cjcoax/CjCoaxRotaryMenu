@@ -36,7 +36,9 @@ class CjCoaxMenuCell: UICollectionViewCell {
     
     // MARK:- private methods
     func makeCircular() {
-        self.layer.cornerRadius = min(self.frame.size.height,             self.frame.size.width)
+        print(self.frame.size.height)
+    
+        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width)/2.0
         self.clipsToBounds = true
         self.layer.borderColor = UIColor(red: 255.0/255.0, green: 115.0/255.0, blue: 0.0, alpha: 1.0).cgColor
         self.layer.borderWidth = 1.0
