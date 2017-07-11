@@ -75,8 +75,7 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
         let itemSize = delegate.sizeForCollectionViewCells(collectionView)
         let radius: CGFloat = (
             min(collectionView.frame.width, collectionView.frame.height) -
-            max(itemSize.width, itemSize.height)/2.0
-        )
+            max(itemSize.width, itemSize.height))/2.0
         
         if self.cachedAttributes.isEmpty {
             for idx in 0..<numberOfItemsInCollectionView {
@@ -87,9 +86,11 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
                     attributes.center = CGPoint(x: o.x - radius, y: o.y)
                 } else {
                     let p = cachedAttributes.last!.center
-                    let newY = cos(angle) * (p.x - o.x) - sin(angle) * (p.y - o.y) + o.x
-                    let newX = sin(angle) * (p.x - o.x) + cos(angle) * (p.y - o.y) + o.y
+                    let newX = cos(angle) * (p.x - o.x) - sin(angle) * (p.y - o.y) + o.x
+                    let newY = sin(angle) * (p.x - o.x) + cos(angle) * (p.y - o.y) + o.y
                     let center = CGPoint(x: newX, y: newY)
+                    
+                    print(center)
                     attributes.center = center
                 }
                 self.cachedAttributes.append(attributes)
@@ -102,7 +103,7 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        print("layoutAttributesForElements: \(Date())")
+//        print("layoutAttributesForElements: \(Date())")
         return self.cachedAttributes
     }
     

@@ -81,6 +81,6 @@ extension CjCoaxContainerViewController: UICollectionViewDataSource, UICollectio
 
 extension CjCoaxContainerViewController: CjCoaxCircularLayoutDelegate {
     public func sizeForCollectionViewCells(_ collectionView: UICollectionView) -> CGSize {
-        return CGSize(width: 20, height: 20)
+        return CGSize(width: 100, height: 100)
     }
 }
