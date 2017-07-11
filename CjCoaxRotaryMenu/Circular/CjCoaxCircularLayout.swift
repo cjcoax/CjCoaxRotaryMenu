@@ -90,7 +90,6 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
                     let newY = sin(angle) * (p.x - o.x) + cos(angle) * (p.y - o.y) + o.y
                     let center = CGPoint(x: newX, y: newY)
                     
-                    print(center)
                     attributes.center = center
                 }
                 self.cachedAttributes.append(attributes)

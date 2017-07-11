@@ -13,6 +13,7 @@ public class CjCoaxContainerViewController: UIViewController {
     var isFirstLoad = true
     var circularLayout: CjCoaxCircularLayout!
     var selectedIndexPath: IndexPath?
+    weak var delegate: CjCoaxRotaryMenuDelegate?
     
     // MARK:- life cycle
     public override func viewDidLoad() {
@@ -80,7 +81,12 @@ extension CjCoaxContainerViewController: UICollectionViewDataSource, UICollectio
 
 
 extension CjCoaxContainerViewController: CjCoaxCircularLayoutDelegate {
+    //instruct size of the menu item to the collection view
     public func sizeForCollectionViewCells(_ collectionView: UICollectionView) -> CGSize {
-        return CGSize(width: 50, height: 50)
+        guard let diameter = self.delegate?.menuItemDiameter() else {
+            return CGSize(width: 50, height: 50)
+        }
+        
+        return CGSize(width: diameter , height: diameter)
     }
 }
