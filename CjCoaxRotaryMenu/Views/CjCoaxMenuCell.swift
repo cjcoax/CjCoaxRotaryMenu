@@ -12,6 +12,8 @@ import UIKit
 class CjCoaxMenuCell: UICollectionViewCell {
     // MARK:- private properties
     @IBOutlet private weak var menuImage: UIImageView!
+    @IBOutlet weak var lblIdentifier: UILabel!
+    
     
     // MARK:- public properties
     var cellImage: UIImage? {
@@ -24,7 +26,7 @@ class CjCoaxMenuCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.random()
     }
     
     override func layoutSubviews() {
@@ -44,7 +46,19 @@ class CjCoaxMenuCell: UICollectionViewCell {
 }
 
 
-
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(red:   .random(),
+                       green: .random(),
+                       blue:  .random(),
+                       alpha: 1.0)
+    }
+}
 
 
 

@@ -60,8 +60,8 @@ public class CjCoaxContainerViewController: UIViewController {
     }
 }
 
-
-extension CjCoaxContainerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+// MARK:- UICollectionViewDataSource implementation
+extension CjCoaxContainerViewController: UICollectionViewDataSource {
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -71,13 +71,24 @@ extension CjCoaxContainerViewController: UICollectionViewDataSource, UICollectio
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:
-            CjCoaxConstants.reusableIdentifiers.menuReusableId,
-                                                      for: indexPath)
-        
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:CjCoaxConstants.reusableIdentifiers.menuReusableId,
+            for: indexPath) as? CjCoaxMenuCell else {
+                return UICollectionViewCell()
+        }
+        cell.lblIdentifier.text = "\(indexPath.item)"
         return cell
     }
 }
+
+
+extension CjCoaxContainerViewController: UICollectionViewDelegate {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("item selected at index: \(indexPath.item)")
+        self.circularLayout.changeLayoutForSelectedItem(item: indexPath.item)
+    }
+}
+
 
 
 extension CjCoaxContainerViewController: CjCoaxCircularLayoutDelegate {

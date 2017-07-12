@@ -44,8 +44,8 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
         self.animator.addBehavior(dragBehavior!)
     }
     
-    func changeLayoutForSelectedItem() {
-        self.trainBehavior?.disableTrainToAttributes()
+    func changeLayoutForSelectedItem(item: Int) {
+        self.trainBehavior?.disableTrainToAttributes(selectedAttributeIndex: item)
     }
     
     func updateDragLocation(_ point: CGPoint) {
