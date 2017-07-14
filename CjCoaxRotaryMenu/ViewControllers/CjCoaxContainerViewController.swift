@@ -14,6 +14,8 @@ public class CjCoaxContainerViewController: UIViewController {
     var circularLayout: CjCoaxCircularLayout!
     var selectedIndexPath: IndexPath?
     weak var delegate: CjCoaxRotaryMenuDelegate?
+    var isSelected = false
+    
     
     // MARK:- life cycle
     public override func viewDidLoad() {
@@ -84,8 +86,7 @@ extension CjCoaxContainerViewController: UICollectionViewDataSource {
 
 extension CjCoaxContainerViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("item selected at index: \(indexPath.item)")
-        self.circularLayout.changeLayoutForSelectedItem(item: indexPath.item)
+        self.circularLayout.changeSelectionState(item: indexPath.item)
     }
 }
 

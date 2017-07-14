@@ -16,11 +16,13 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
     weak var delegate: CjCoaxCircularLayoutDelegate?
     
     fileprivate var cachedAttributes: [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
+    fileprivate var attributeValuesAtFirstLoad: [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
     fileprivate var animator: UIDynamicAnimator!
     fileprivate var trainBehavior: CjCoaxTrainAttachmentBehavior?
     fileprivate var dragBehavior: UIAttachmentBehavior?
     fileprivate var attachmentAttributes: UICollectionViewLayoutAttributes?
-    
+    fileprivate var selected: Bool = false
+    fileprivate var isFirstLoad: Bool = true
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -44,11 +46,16 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
         self.animator.addBehavior(dragBehavior!)
     }
     
-    func changeLayoutForSelectedItem(item: Int) {
-        let attributes = self.cachedAttributes[item]
-        self.trainBehavior?.disableTrainToAttributes(selectedAttributeIndex: item)
-        attributes.zIndex = 1
+    func changeSelectionState(item: Int) {
+        if self.selected {
+            self.expandLayoutForSelectedItem(item: item)
+        } else {
+            self.collapseLayoutForSelectedItem(item: item)
+        }
+        self.selected = !self.selected
     }
+    
+    
     
     func updateDragLocation(_ point: CGPoint) {
         guard let dragBehavior = self.dragBehavior else {
@@ -95,16 +102,29 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
                     attributes.center = center
                 }
                 self.cachedAttributes.append(attributes)
+                
+                if self.isFirstLoad {
+                    self.attributeValuesAtFirstLoad = self.cachedAttributes
+                }
+                print(attributes.center)
             }
-            self.trainBehavior = CjCoaxTrainAttachmentBehavior(items: self.cachedAttributes,
-                                                               center: o,
-                                                               radius: radius)
+            
+            if self.trainBehavior == nil {
+                self.trainBehavior = CjCoaxTrainAttachmentBehavior(items: self.cachedAttributes,
+                                              center: o,
+                                              radius: radius)
+            }
+            
+            
+        
+            if self.animator.behaviors.contains(self.trainBehavior!) {
+               self.animator.removeBehavior(self.trainBehavior!)
+            }
             self.animator.addBehavior(self.trainBehavior!)
         }
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-//        print("layoutAttributesForElements: \(Date())")
         return self.cachedAttributes
     }
     
@@ -127,6 +147,24 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
     fileprivate func distanceBetweenPoint(_ point1: CGPoint, point2: CGPoint) -> CGFloat {
         return sqrt(pow(point1.x - point2.x, 2) + pow(point1.y - point2.y, 2))
     }
+    
+    fileprivate func collapseLayoutForSelectedItem(item: Int) {
+        guard let trainBehavior = self.trainBehavior else {
+            return
+        }
+        let attributes = self.cachedAttributes[item]
+        trainBehavior.disableTrainToAttributes()
+        attributes.zIndex = 1
+    }
+    
+    
+    fileprivate func expandLayoutForSelectedItem(item: Int) {
+        guard let trainBehavior = self.trainBehavior else {
+            return
+        }
+        trainBehavior.enableTrainToAttributes()
+    }
+    
 }
 
 
