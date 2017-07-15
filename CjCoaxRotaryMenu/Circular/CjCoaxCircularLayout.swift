@@ -47,12 +47,16 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
     }
     
     func changeSelectionState(item: Int) {
-        if self.selected {
-            self.expandLayoutForSelectedItem(item: item)
-        } else {
-            self.collapseLayoutForSelectedItem(item: item)
-        }
         self.selected = !self.selected
+        if let dragBehavior = self.dragBehavior {
+            self.animator.removeBehavior(dragBehavior)
+        }
+        
+        if self.selected {
+            self.collapseLayoutForSelectedItem(item: item)
+        } else {
+            self.expandLayoutForSelectedItem(item: item)
+        }
     }
     
     
@@ -170,4 +174,12 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
 
 
 extension CjCoaxCircularLayout: UIDynamicAnimatorDelegate {
+    public func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator) {
+        print("paused")
+        if !self.selected {
+            self.trainBehavior?.logInfo()
+            self.trainBehavior?.recreateAttachments()
+        }
+        
+    }
 }
