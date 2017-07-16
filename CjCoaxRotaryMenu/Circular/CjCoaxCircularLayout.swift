@@ -93,6 +93,8 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
             min(collectionView.frame.width, collectionView.frame.height) -
             max(itemSize.width, itemSize.height))/2.0
         
+
+        
         if self.cachedAttributes.isEmpty {
             for idx in 0..<numberOfItemsInCollectionView {
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: idx, section: 0))

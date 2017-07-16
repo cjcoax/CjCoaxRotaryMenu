@@ -24,14 +24,18 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
     fileprivate var attachmentsToCenter = [CjCoaxAttachment]()
     fileprivate var attachmentsToAttributes = [CjCoaxAttachment]()
     fileprivate var snapAttributesToOriginalCenters = [CjCoaxSnap]()
+    fileprivate var attachmentsToOriginalCenters = [CjCoaxAttachment]()
+    fileprivate var gravityAttribute: CjCoaxGravity!
     
     fileprivate var lengthFromCenter: CGFloat!
     fileprivate let toOtherIdPrefix = "toOther"
     fileprivate let toCenterIdPrefix = "toCenter"
     fileprivate let snapIdPrefix = "snapCenter"
-    fileprivate var attachmentsToAttbibuteLength: CGFloat?
+    fileprivate let toOriginalCenterPrefix = "toOriginalCenter"
+    
     
     fileprivate let items: [UIDynamicItem]
+    
     
     init(items: [UIDynamicItem], center: CGPoint, radius: CGFloat) {
         self.items = items
@@ -51,16 +55,25 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
             //create snap attributes for when we 1.select an item, 2.trying to select again to go to full mode
             let snap = CjCoaxSnap(item: item, snapTo: item.center)
             snap.cjcoaxIdentifier = "\(snapIdPrefix)\(index)-\(item.center)"
-            snap.damping = 0.4
+            snap.damping = 0.6
             self.snapAttributesToOriginalCenters.append(snap)
             //but we are not adding it to child behavior yet
             
+            
+            let attachmentToOriginalCenter = CjCoaxAttachment(item: item, attachedToAnchor: item.center)
+            attachmentToOriginalCenter.cjcoaxIdentifier = "\(toOriginalCenterPrefix)\(index)-\(item.center)"
+            attachmentToOriginalCenter.length = 0.0
+            attachmentToOriginalCenter.frequency = 8.0
+            attachmentToOriginalCenter.damping = 0.5
+            self.attachmentsToOriginalCenters.append(attachmentToOriginalCenter)
+            
             self.addChildBehavior(attachment)
+        
         }
         
-        let gravity = CjCoaxGravity(items: items)
-        gravity.cjcoaxIdentifier = "gravity"
-        self.addChildBehavior(gravity)
+        self.gravityAttribute = CjCoaxGravity(items: items)
+        self.gravityAttribute.cjcoaxIdentifier = "gravity"
+        self.addChildBehavior(self.gravityAttribute)
         
         self.attachmentsToAttributes = self.attachToEachOther(items: items)
         for attachmentToAttribute in self.attachmentsToAttributes {
@@ -73,36 +86,41 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
     
     // MARK:- public methods
     func logInfo() {
-        if let _ = self.attachmentsToAttbibuteLength {
-            return
-        }
-        self.attachmentsToAttbibuteLength = self.attachmentsToAttributes[0].length
+        
+
     }
     
+    
+    /**
+     disables train attributes so items will attach to center
+     */
     func disableTrainToAttributes() {
-
-        for behavior in self.snapAttributesToOriginalCenters {
-            if self.childBehaviors.contains(behavior) {
-                self.removeChildBehavior(behavior)
-            }
+        
+        //remove any snap
+//        for behavior in self.snapAttributesToOriginalCenters {
+//            if self.childBehaviors.contains(behavior) {
+//                self.removeChildBehavior(behavior)
+//            }
+//        }
+        
+        
+        for attachment in self.attachmentsToOriginalCenters {
+            self.removeChildBehavior(attachment)
         }
         
         for attachmentToBehavior in self.attachmentsToAttributes {
-//            attachmentToBehavior.length = 0
-//            attachmentToBehavior.frequency = 1.2
-//            attachmentToBehavior.damping = 0.5
             self.removeChildBehavior(attachmentToBehavior)
         }
         
         for behavior in self.attachmentsToCenter {
             behavior.length = 0.0
-            behavior.frequency = 4.0//4.0
-            behavior.damping = 0.00//0.9
+            behavior.frequency = 5.0//4.0//4.0
+            behavior.damping = 0.4//0.1//0.9
         }
         
         print("func disableTrainToAttributes() {")
         for behavior in self.childBehaviors {
-            print("id: \(behavior.value(forKey: "cjcoaxIdentifier") ?? "--")")
+            print("\(behavior.value(forKey: "cjcoaxIdentifier") ?? "--")")
             if type(of: behavior) == CjCoaxAttachment.self {
                 print("length: \((behavior as! CjCoaxAttachment).length)")
                 print("anchor point: \((behavior as! CjCoaxAttachment).anchorPoint)")
@@ -111,9 +129,52 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
     }
     
     
+    /*
+     enableTrainToAttributes along with recreateAttachments are used to re-enable train around a center
+     */
     func enableTrainToAttributes() {
-        for behavior in self.snapAttributesToOriginalCenters {
+//        for behavior in self.snapAttributesToOriginalCenters {
+//            self.addChildBehavior(behavior)
+//        }
+        
+        for behavior in self.attachmentsToCenter {
+            self.removeChildBehavior(behavior)
+        }
+        
+        self.removeChildBehavior(self.gravityAttribute)
+        
+        
+        for behavior in self.attachmentsToOriginalCenters {
             self.addChildBehavior(behavior)
+        }
+        
+        
+        
+        
+        print("func enableTrainToAttributes() {")
+        for behavior in self.childBehaviors {
+            print("id: \(behavior.value(forKey: "cjcoaxIdentifier") ?? "--")")
+        }
+    }
+    func recreateAttachments() {
+        for snap in self.snapAttributesToOriginalCenters {
+            if self.childBehaviors.contains(snap) {
+                self.removeChildBehavior(snap)
+            }
+        }
+        
+        for behavior in self.attachmentsToOriginalCenters {
+            if self.childBehaviors.contains(behavior) {
+                self.removeChildBehavior(behavior)
+            }
+        }
+        
+        
+        for attachment in self.attachmentsToAttributes {
+            if self.childBehaviors.contains(attachment) {
+                return
+            }
+            self.addChildBehavior(attachment)
         }
         
         for behavior in self.attachmentsToCenter {
@@ -122,40 +183,8 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
             behavior.damping = 0
         }
         
-//        for behavior in self.attachmentsToAttributes {
-//            behavior.length = self.attachmentsToAttbibuteLength!
-//            behavior.frequency = 0
-//            behavior.damping = 0
-//        }
-//        for attachmentToAttribute in self.attachmentsToAttributes {
-//            if let attachmentsToAttbibuteLength = self.attachmentsToAttbibuteLength {
-//                attachmentToAttribute.length = attachmentsToAttbibuteLength
-//            }
-//            self.addChildBehavior(attachmentToAttribute)
-//        }
         
-        print("func enableTrainToAttributes() {")
-        for behavior in self.childBehaviors {
-            print("id: \(behavior.value(forKey: "cjcoaxIdentifier") ?? "--")")
-        }
-    }
-    
-    func recreateAttachments() {
-        for snap in self.snapAttributesToOriginalCenters {
-            if self.childBehaviors.contains(snap) {
-                self.removeChildBehavior(snap)
-            }
-        }
-        
-        for attachment in self.attachmentsToAttributes {
-            if self.childBehaviors.contains(attachment) {
-                return
-            }
-            self.addChildBehavior(attachment)
-//            attachmentToBehavior.length = 0
-//            attachmentToBehavior.frequency = 1.2
-//            attachmentToBehavior.damping = 0.5
-        }
+        self.addChildBehavior(self.gravityAttribute)
         
         print("func recreateAttachments() {")
         for behavior in self.childBehaviors {
