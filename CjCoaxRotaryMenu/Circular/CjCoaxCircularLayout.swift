@@ -47,6 +47,9 @@ class CjCoaxCircularLayout: UICollectionViewLayout {
     }
     
     func changeSelectionState(item: Int) {
+        if let dragBehavior = self.dragBehavior {
+            self.animator.removeBehavior(dragBehavior)
+        }
         self.selected = !self.selected
         if let dragBehavior = self.dragBehavior {
             self.animator.removeBehavior(dragBehavior)

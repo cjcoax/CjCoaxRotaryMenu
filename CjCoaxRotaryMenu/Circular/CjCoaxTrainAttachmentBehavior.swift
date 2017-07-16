@@ -81,17 +81,17 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
     
     func disableTrainToAttributes() {
 
-//        for behavior in self.snapAttributesToOriginalCenters {
-//            if self.childBehaviors.contains(behavior) {
-//                self.removeChildBehavior(behavior)
-//            }
-//        }
+        for behavior in self.snapAttributesToOriginalCenters {
+            if self.childBehaviors.contains(behavior) {
+                self.removeChildBehavior(behavior)
+            }
+        }
         
         for attachmentToBehavior in self.attachmentsToAttributes {
-            attachmentToBehavior.length = 0
-            attachmentToBehavior.frequency = 1.2
-            attachmentToBehavior.damping = 0.5
-//            self.removeChildBehavior(attachmentToBehavior)
+//            attachmentToBehavior.length = 0
+//            attachmentToBehavior.frequency = 1.2
+//            attachmentToBehavior.damping = 0.5
+            self.removeChildBehavior(attachmentToBehavior)
         }
         
         for behavior in self.attachmentsToCenter {
@@ -112,9 +112,9 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
     
     
     func enableTrainToAttributes() {
-//        for behavior in self.snapAttributesToOriginalCenters {
-//            self.addChildBehavior(behavior)
-//        }
+        for behavior in self.snapAttributesToOriginalCenters {
+            self.addChildBehavior(behavior)
+        }
         
         for behavior in self.attachmentsToCenter {
             behavior.length = lengthFromCenter
@@ -122,13 +122,15 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
             behavior.damping = 0
         }
         
-        for behavior in self.attachmentsToAttributes {
-            behavior.length = self.attachmentsToAttbibuteLength!
-            behavior.frequency = 0
-            behavior.damping = 0
-        }
+//        for behavior in self.attachmentsToAttributes {
+//            behavior.length = self.attachmentsToAttbibuteLength!
+//            behavior.frequency = 0
+//            behavior.damping = 0
+//        }
 //        for attachmentToAttribute in self.attachmentsToAttributes {
-//            attachmentToAttribute.length = self.attachmentsToAttbibuteLength
+//            if let attachmentsToAttbibuteLength = self.attachmentsToAttbibuteLength {
+//                attachmentToAttribute.length = attachmentsToAttbibuteLength
+//            }
 //            self.addChildBehavior(attachmentToAttribute)
 //        }
         
@@ -139,21 +141,20 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
     }
     
     func recreateAttachments() {
-//        for snap in self.snapAttributesToOriginalCenters {
-//            if self.childBehaviors.contains(snap) {
-//                self.removeChildBehavior(snap)
-//            }
-//        }
+        for snap in self.snapAttributesToOriginalCenters {
+            if self.childBehaviors.contains(snap) {
+                self.removeChildBehavior(snap)
+            }
+        }
         
         for attachment in self.attachmentsToAttributes {
-//            if self.childBehaviors.contains(attachment) {
-//                return
-//            }
-//            self.addChildBehavior(attachment)
+            if self.childBehaviors.contains(attachment) {
+                return
+            }
+            self.addChildBehavior(attachment)
 //            attachmentToBehavior.length = 0
 //            attachmentToBehavior.frequency = 1.2
 //            attachmentToBehavior.damping = 0.5
-            
         }
         
         print("func recreateAttachments() {")
