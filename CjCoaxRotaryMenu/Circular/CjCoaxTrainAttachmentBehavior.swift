@@ -63,8 +63,8 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
             let attachmentToOriginalCenter = CjCoaxAttachment(item: item, attachedToAnchor: item.center)
             attachmentToOriginalCenter.cjcoaxIdentifier = "\(toOriginalCenterPrefix)\(index)-\(item.center)"
             attachmentToOriginalCenter.length = 0.0
-            attachmentToOriginalCenter.frequency = 8.0
-            attachmentToOriginalCenter.damping = 0.5
+            attachmentToOriginalCenter.frequency = 2.0
+            attachmentToOriginalCenter.damping = 0.8
             self.attachmentsToOriginalCenters.append(attachmentToOriginalCenter)
             
             self.addChildBehavior(attachment)
@@ -181,8 +181,8 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
             behavior.length = lengthFromCenter
             behavior.frequency = 0
             behavior.damping = 0
+            self.addChildBehavior(behavior)
         }
-        
         
         self.addChildBehavior(self.gravityAttribute)
         
