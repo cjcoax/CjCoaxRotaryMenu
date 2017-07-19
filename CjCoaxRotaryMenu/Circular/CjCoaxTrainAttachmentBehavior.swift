@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CjCoaxAttachment: UIAttachmentBehavior {
     var cjcoaxIdentifier: String?
 }
@@ -17,6 +18,10 @@ class CjCoaxGravity: UIGravityBehavior {
 }
 
 class CjCoaxSnap: UISnapBehavior {
+    var cjcoaxIdentifier: String?
+}
+
+class CjCoaxDynamicItemBehavior: UIDynamicItemBehavior {
     var cjcoaxIdentifier: String?
 }
 
@@ -62,18 +67,32 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
             
             let attachmentToOriginalCenter = CjCoaxAttachment(item: item, attachedToAnchor: item.center)
             attachmentToOriginalCenter.cjcoaxIdentifier = "\(toOriginalCenterPrefix)\(index)-\(item.center)"
-            attachmentToOriginalCenter.length = 0.0
-            attachmentToOriginalCenter.frequency = 4
-            attachmentToOriginalCenter.damping = 0.7
+            attachmentToOriginalCenter.length = 0.5
+            attachmentToOriginalCenter.frequency = 4.6
+            attachmentToOriginalCenter.damping = 0.1
+            /*
+             behavior.length = 0.5
+             behavior.frequency = 4.6//4.0//4.0
+             behavior.damping = 0.1//0.1//0.9
+             */
             self.attachmentsToOriginalCenters.append(attachmentToOriginalCenter)
             
             self.addChildBehavior(attachment)
-        
         }
         
         self.gravityAttribute = CjCoaxGravity(items: items)
         self.gravityAttribute.cjcoaxIdentifier = "gravity"
         self.addChildBehavior(self.gravityAttribute)
+        
+        //add dynamic behavior for items
+        let dynamicItem = CjCoaxDynamicItemBehavior(items: items)
+        dynamicItem.friction = 12//1//20//12
+        dynamicItem.resistance = 12//1//40//12
+        dynamicItem.elasticity = 10
+        dynamicItem.cjcoaxIdentifier = "Dynamic item behavior"
+        self.addChildBehavior(dynamicItem)
+        
+        
         
         self.attachmentsToAttributes = self.attachToEachOther(items: items)
         for attachmentToAttribute in self.attachmentsToAttributes {
@@ -113,9 +132,9 @@ class CjCoaxTrainAttachmentBehavior: UIDynamicBehavior {
         }
         
         for behavior in self.attachmentsToCenter {
-            behavior.length = 0.0
-            behavior.frequency = 2//4.0//4.0
-            behavior.damping = 1//0.1//0.9
+            behavior.length = 0.5
+            behavior.frequency = 4.6//4.0//4.0
+            behavior.damping = 0.1//0.1//0.9
         }
         
         print("func disableTrainToAttributes() {")
