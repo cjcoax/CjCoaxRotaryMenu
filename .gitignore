@@ -3,3 +3,5 @@ CjCoaxRotaryMenu.xcodeproj/xcuserdata/*
 Build
 xcuserdata
 xcshareddata
+!*.xcworkspace/contents.xcworkspacedata
+
