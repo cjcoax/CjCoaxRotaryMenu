@@ -1,8 +1,7 @@
 # CjCoaxRotaryMenu
 This is the MVP implementation of a ferris-wheel-like menu, using collection view.
 
-
-
+[![Demo](https://github.com/cjcoax/CjCoaxRotaryMenu/blob/master/Demo.gif "Demo")]
 ### Notes
 - The menu itself is a collection view, and all animations/forces are done using UIDynamics, with a custom behavior called: *CjCoaxTrainAttachmentBehavior*
 
